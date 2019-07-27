@@ -2,7 +2,10 @@ class Charity < ActiveRecord::Base
   validates :name, presence: true
 
   def credit_amount(amount)
-    new_total = total + amount
-    update_attribute :total, new_total
+    with_lock do
+      reload
+      updated_total = total + amount
+      update(total: updated_total)
+    end
   end
 end
