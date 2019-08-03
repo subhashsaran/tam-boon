@@ -14,3 +14,13 @@ en:
       link: "Donate"
       success: "Success you've donated some money money money."
       failure: "It seems like this didn't work so well. Try again maybe?"
+
+  activemodel:
+    errors:
+      models:
+        create_charge:
+          attributes:
+            charity:
+              blank: "Please select one"
+            amount:
+              greater_than_or_equal_to: "must be greater than or equal to %{count} THB"
