@@ -1,5 +1,6 @@
 class Charity < ActiveRecord::Base
   validates :name, presence: true
+  scope :random, -> { order(Arel.sql('random()')).first }
 
   def credit_amount(amount)
     with_lock do

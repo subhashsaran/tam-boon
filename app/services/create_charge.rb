@@ -41,7 +41,12 @@ class CreateCharge
   end
 
   def charity=(charity)
-    @charity = Charity.find_by(id: charity)
+    @charity =
+      if charity == 'random'
+        Charity.random
+      else
+        Charity.find_by(id: charity)
+      end
   end
 
   private
