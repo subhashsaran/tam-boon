@@ -34,7 +34,7 @@ class CreateCharge
   def amount=(amount)
     @amount =
       begin
-        Integer(amount.strip) * 100
+        Float(amount.strip) * 100
       rescue ArgumentError
         0
       end
